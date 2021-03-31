@@ -2,13 +2,15 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
+import { ThemeProvider } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 // core components
-import Header from "components/Header/Header.js";
+import Header from "components/Header/Header.js"; //We'll replace this with Brian's appbar when it's ready --Micheal
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -17,13 +19,13 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import profile from "assets/img/faces/christian.jpg";
+import profile from "assets/img/faces/hector.jpeg";
 
-import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
+import post1 from "assets/img/examples/post-1.jpg";
+import post2 from "assets/img/examples/post-2.jpg";
+import post3 from "assets/img/examples/post-3.jpg";
+import post4 from "assets/img/examples/post-4.jpg";
+import post5 from "assets/img/examples/post-5.jpeg";
 import work1 from "assets/img/examples/olu-eletu.jpg";
 import work2 from "assets/img/examples/clem-onojeghuo.jpg";
 import work3 from "assets/img/examples/cynthia-del-rio.jpg";
@@ -47,7 +49,7 @@ export default function ProfilePage(props) {
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
+        brand="Collector"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -67,8 +69,8 @@ export default function ProfilePage(props) {
                     <img src={profile} alt="..." className={imageClasses} />
                   </div>
                   <div className={classes.name}>
-                    <h3 className={classes.title}>Christian Louboutin</h3>
-                    <h6>DESIGNER</h6>
+                    <h3 className={classes.title}>Hector The Collector</h3>
+                    <h6>TREMBLE AT MY PRESTIGIOUS AND MINT-IN-BOX ACTION FIGURES!</h6>
                     <Button justIcon link className={classes.margin5}>
                       <i className={"fab fa-twitter"} />
                     </Button>
@@ -84,44 +86,49 @@ export default function ProfilePage(props) {
             </GridContainer>
             <div className={classes.description}>
               <p>
-                An artist of considerable range, Chet Faker — the name taken by
-                Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-                and records all of his own music, giving it a warm, intimate
-                feel with a solid groove structure.{" "}
+                My name's Hector and I'm here to say
+                I buy and trade collectibles all diggity-day{" "}
               </p>
             </div>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                 <NavPills
                   alignCenter
-                  color="primary"
+                  color="pallette.primary"
                   tabs={[
                     {
-                      tabButton: "Studio",
-                      tabIcon: Camera,
+                      tabButton: "My Posts",
+                      tabIcon: PhotoCameraIcon,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={12} sm={12} md={4}>
                             <img
                               alt="..."
-                              src={studio1}
+                              src={post1}
                               className={navImageClasses}
                             />
                             <img
                               alt="..."
-                              src={studio2}
+                              src={post2}
                               className={navImageClasses}
                             />
                           </GridItem>
                           <GridItem xs={12} sm={12} md={4}>
                             <img
                               alt="..."
-                              src={studio5}
+                              src={post3}
                               className={navImageClasses}
                             />
                             <img
                               alt="..."
-                              src={studio4}
+                              src={post4}
+                              className={navImageClasses}
+                            />
+                          </GridItem>
+                          <GridItem xs={12} sm={12} md={4}>
+                            <img
+                              alt="..."
+                              src={post5}
                               className={navImageClasses}
                             />
                           </GridItem>
@@ -129,8 +136,8 @@ export default function ProfilePage(props) {
                       )
                     },
                     {
-                      tabButton: "Work",
-                      tabIcon: Palette,
+                      tabButton: "Available Items",
+                      tabIcon: MonetizationOnIcon,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={12} sm={12} md={4}>
@@ -166,8 +173,8 @@ export default function ProfilePage(props) {
                       )
                     },
                     {
-                      tabButton: "Favorite",
-                      tabIcon: Favorite,
+                      tabButton: "Trophy Case",
+                      tabIcon: EmojiEventsIcon,
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem xs={12} sm={12} md={4}>
@@ -178,7 +185,7 @@ export default function ProfilePage(props) {
                             />
                             <img
                               alt="..."
-                              src={studio3}
+                              src={post3}
                               className={navImageClasses}
                             />
                           </GridItem>
@@ -195,7 +202,7 @@ export default function ProfilePage(props) {
                             />
                             <img
                               alt="..."
-                              src={studio1}
+                              src={post1}
                               className={navImageClasses}
                             />
                           </GridItem>

@@ -5,6 +5,8 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 // @material-ui/icons
 // core components
 import Header from "components/Header/Header.js";
@@ -30,18 +32,36 @@ import SectionDownload from "./Sections/SectionDownload.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#ffdd5e',
+      main: '#d3ac2b',
+      dark: '#9e7d00',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#5e677d',
+      main: '#333d51',
+      dark: '#0b1729',
+      contrastText: '#000',
+    },
+  },
+});
+
 const useStyles = makeStyles(styles);
 
 export default function Components(props) {
   const classes = useStyles();
-  const { ...rest } = props;
+  const { ...rest } = props;  
   return (
+    <ThemeProvider theme={theme}>  
     <div>
       <Header
-        brand="Material Kit React"
+        brand="Collector"
         rightLinks={<HeaderLinks />}
         fixed
-        color="transparent"
+        color="pallette.primary"
         changeColorOnScroll={{
           height: 400,
           color: "white"
@@ -86,5 +106,7 @@ export default function Components(props) {
       </div>
       <Footer />
     </div>
+    </ThemeProvider>
   );
+  
 }
